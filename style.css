@@ -1,0 +1,266 @@
+/* =========================================================
+   PRANAVADHI DESIGNERS STUDIO
+   CINEMATIC HERO SYSTEM – FINAL
+   IMAGE-MATCHED VERSION
+========================================================= */
+
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+/* ===== BODY BACKGROUND (COSMIC BASE) ===== */
+body{
+  background:
+    radial-gradient(circle at 20% 30%, #2b003d 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, #0b1a3a 0%, transparent 45%),
+    radial-gradient(circle at center, #090014 0%, #000 70%);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ===== NAVBAR ===== */
+header{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  padding:20px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(10px);
+}
+
+header h1{
+  font-size:22px;
+  font-weight:900;
+  background:linear-gradient(90deg,#ff9800,#ff3d00,#ff9800);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+nav a{
+  color:#fff;
+  margin-left:28px;
+  font-size:14px;
+  text-decoration:none;
+  opacity:.85;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background:#ff9800;
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+nav a:hover{opacity:1}
+
+/* ===== HERO SECTION ===== */
+.hero{
+  min-height:100vh;
+  padding:140px 90px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  position:relative;
+  z-index:5;
+}
+
+/* ===== HERO TEXT ===== */
+.hero-text h2{
+  font-size:72px;
+  font-weight:900;
+  line-height:1.05;
+  background:linear-gradient(
+    90deg,
+    #ff9800,
+    #ff5722,
+    #ff1744,
+    #ff9800
+  );
+  -webkit-background-clip:text;
+  color:transparent;
+  background-size:400% 400%;
+  animation:fireText 6s infinite linear;
+}
+
+@keyframes fireText{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.hero-text .tags{
+  margin-top:25px;
+  font-weight:600;
+  letter-spacing:1px;
+  color:#ffcc80;
+}
+
+.hero-text p{
+  margin-top:18px;
+  max-width:560px;
+  font-size:16px;
+  opacity:.85;
+}
+
+.hero-text button{
+  margin-top:35px;
+  padding:14px 36px;
+  border:none;
+  border-radius:30px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  background:linear-gradient(90deg,#ff9800,#ff3d00);
+  color:#000;
+  box-shadow:0 0 35px rgba(255,120,0,.7);
+  position:relative;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.hero-text button:hover{
+  transform:scale(1.06);
+}
+
+/* ===== HERO VISUAL ===== */
+.hero-visual{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
+
+/* ===== FLOATING SCREEN ===== */
+.screen{
+  width:420px;
+  padding:22px;
+  border-radius:26px;
+  background:linear-gradient(160deg,#0d0d0d,#000);
+  box-shadow:
+    0 0 80px rgba(255,120,0,.7),
+    inset 0 0 50px rgba(255,120,0,.18);
+  animation:screenHover 8s ease-in-out infinite;
+}
+
+@keyframes screenHover{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-26px)}
+  100%{transform:translateY(0)}
+}
+
+.screen img{
+  width:100%;
+  border-radius:18px;
+}
+
+/* ===== FLOATING CUBES / SHARDS ===== */
+.cube{
+  position:absolute;
+  width:60px;
+  height:60px;
+  background:linear-gradient(135deg,#ff9800,#ff1744);
+  transform:rotate(45deg);
+  opacity:.9;
+  box-shadow:0 0 25px rgba(255,120,0,.9);
+  animation:cubeRise 14s linear infinite;
+}
+
+.cube.small{
+  width:30px;
+  height:30px;
+}
+
+@keyframes cubeRise{
+  from{transform:translateY(0) rotate(0deg)}
+  to{transform:translateY(-120vh) rotate(720deg)}
+}
+
+/* ===== CINEMATIC BACKGROUND LAYERS ===== */
+.bg-cinematic{
+  position:fixed;
+  inset:0;
+  z-index:-10;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+/* ===== STARS ===== */
+.bg-stars{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 40% 70%, #ff9800, transparent),
+    radial-gradient(1px 1px at 80% 30%, #ff0055, transparent),
+    radial-gradient(1px 1px at 60% 90%, #00e5ff, transparent);
+  background-size:320px 320px;
+  animation:starDrift 80s linear infinite;
+  opacity:.65;
+}
+
+@keyframes starDrift{
+  from{background-position:0 0}
+  to{background-position:1400px 1400px}
+}
+
+/* ===== ENERGY WAVES (MAIN IMAGE FEATURE) ===== */
+.energy-waves span{
+  position:absolute;
+  width:140%;
+  height:140%;
+  top:-20%;
+  left:-20%;
+  background:linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,140,0,.45) 45%,
+    rgba(255,0,90,.55) 50%,
+    rgba(255,140,0,.45) 55%,
+    transparent 70%
+  );
+  filter:blur(90px);
+  animation:waveFlow 20s linear infinite;
+}
+
+.energy-waves span:nth-child(2){
+  animation-duration:26s;
+  opacity:.7;
+}
+
+.energy-waves span:nth-child(3){
+  animation-duration:32s;
+  opacity:.5;
+}
+
+@keyframes waveFlow{
+  from{transform:translateX(-25%) rotate(0deg)}
+  to{transform:translateX(25%) rotate(360deg)}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    padding:120px 30px;
+  }
+  .hero-text h2{
+    font-size:44px;
+  }
+}

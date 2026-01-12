@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy | PRANAVADHI DESIGNERS STUDIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a050f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .gradient-text {
+      background: linear-gradient(45deg,#ffeb3b,#ff9800,#f44336);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255,235,59,0.25);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: 0 30px 80px rgba(255,235,59,0.15);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ANIMATED BACKGROUND -->
+<canvas id="animatedBackground" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+<script>
+const canvas = document.getElementById('animatedBackground');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+class Particle {
+  constructor() {
+    this.x = Math.random()*canvas.width;
+    this.y = Math.random()*canvas.height;
+    this.size = Math.random()*2+1;
+    this.vx = (Math.random()-0.5)*0.4;
+    this.vy = (Math.random()-0.5)*0.4;
+    this.color = `rgba(255,235,59,${Math.random()*0.4})`;
+  }
+  update() {
+    this.x+=this.vx; this.y+=this.vy;
+    if(this.x<0||this.x>canvas.width) this.vx*=-1;
+    if(this.y<0||this.y>canvas.height) this.vy*=-1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fillStyle=this.color;
+    ctx.fill();
+  }
+}
+
+const particles = Array.from({length:120},()=>new Particle());
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{p.update(); p.draw();});
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+<!-- NAVBAR (SAME AS MAIN WEBSITE) -->
+<nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/PRANAVADHI DESIGNERS STUDIO Logo.png" class="h-10">
+      <h1 class="text-2xl font-black gradient-text">PRANAVADHI DESIGNERS STUDIO</h1>
+    </a>
+
+    <div class="hidden md:flex gap-8 text-sm font-medium">
+      <a href="index.html" class="hover:text-yellow-300">Home</a>
+      <a href="index.html#services" class="hover:text-yellow-300">Services</a>
+      <a href="index.html#portfolio" class="hover:text-yellow-300">Portfolio</a>
+      <a href="index.html#contact" class="hover:text-yellow-300">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="pt-40 pb-20 text-center">
+  <h1 class="text-5xl md:text-6xl font-black gradient-text mb-4">Privacy Policy</h1>
+  <p class="text-gray-400 text-lg">
+    Transparency. Trust. Responsibility.
+  </p>
+</section>
+
+<!-- PRIVACY CONTENT -->
+<section class="max-w-5xl mx-auto px-6 pb-32">
+  <div class="card space-y-10 text-gray-300 text-lg leading-relaxed">
+
+    <p>
+      PRANAVADHI DESIGNERS STUDIO respects your privacy and is committed to protecting
+      your personal information across our design, branding, technology, SaaS,
+      consulting and trade services.
+    </p>
+
+    <div>
+      <h2 class="text-2xl font-bold text-yellow-300 mb-3">Information We Collect</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Name, email address and phone number via enquiry forms</li>
+        <li>Business and project-related details shared voluntarily</li>
+        <li>Website usage data for analytics and performance improvements</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-yellow-300 mb-3">How We Use Information</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Responding to enquiries and delivering services</li>
+        <li>Improving our creative and technology offerings</li>
+        <li>Internal business operations and communication</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-yellow-300 mb-3">Data Protection</h2>
+      <p>
+        We apply industry-standard technical and organizational security measures.
+        We do not sell, rent or trade personal information to third parties.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold text-yellow-300 mb-3">Policy Updates</h2>
+      <p>
+        This policy may be updated periodically. Continued use of our website implies
+        acceptance of the revised terms.
+      </p>
+    </div>
+
+    <div class="border-t border-white/10 pt-6">
+      <h2 class="text-xl font-semibold text-yellow-300 mb-2">Contact</h2>
+      <p>
+        For privacy-related concerns, please contact:<br>
+        <strong class="text-white">PRANAVADHI DESIGNERS STUDIO</strong>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black py-10 text-center text-gray-400 text-sm">
+  <p>© 2025 PRANAVADHI DESIGNERS STUDIO</p>
+  <p class="mt-2">Privacy Policy • Terms of Service • Disclaimer</p>
+</footer>
+
+</body>
+</html>
